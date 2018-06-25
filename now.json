@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MONGODB_URI": "@fs-blog-prod"
+    },
+    "alias": "fs2018blogilista.now.sh"
+}

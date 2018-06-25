@@ -1,0 +1,45 @@
+GET http://localhost:3003/api/blogs
+
+###
+
+POST http://localhost:3003/api/blogs
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjViMTk4YTgxNzIyYjNhMDE5YzdiZjZkMyIsImlhdCI6MTUyODQwMDU0MX0.RN8AaeP9Fc4eEhzSH_xq18qMBzDkWsABA2_rnPBillU
+
+{
+    "title": "FullStack 2018 Mooc",
+    "author": "M. Luukkainen",
+    "url": "https://fullstackopen.github.io/",
+    "likes": 3,
+    "userId": "5b198a81722b3a019c7bf6d3"    
+}
+
+###
+
+DELETE http://localhost:3003/api/blogs/5b17053ccf60a562fbf93b32
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjViMTk4YTgxNzIyYjNhMDE5YzdiZjZkMyIsImlhdCI6MTUyODQwMDU0MX0.RN8AaeP9Fc4eEhzSH_xq18qMBzDkWsABA2_rnPBillU
+
+###
+
+GET http://localhost:3003/api/users
+
+###
+
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username": "user",
+  "name": "Dev Man",
+  "password": "password"
+}
+
+###
+
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "user", 
+  "password": "password"
+}
