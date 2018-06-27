@@ -55,6 +55,33 @@ blogsRouter.post('/', async (request, response) => {
   }
 })
 
+blogsRouter.post('/:id/comments', async (request, response) => {
+  try {
+    const body = request.body
+    if (body.comment === undefined || body.comment === '') {
+      return response.status(400).json({ error: 'content missing' })
+    }
+
+    const blog = await Blog
+      .findById(request.params.id)
+      .populate('user', { username: 1, name: 1 })
+
+    blog.comments = blog.comments.concat(body.comment)
+
+    await blog.save()
+
+/*     const updated = await Blog
+      .findByIdAndUpdate(request.params.id, update, { new: true })
+      .populate('user', { username: 1, name: 1 }) */
+
+    response.status(200).json(Blog.format(blog))
+
+  } catch (exception) {
+    console.log(exception)
+    return response.status(400).json({ error: 'malformatted id' })
+  }
+})
+
 blogsRouter.delete('/:id', async (request, response) => {
   try {
 

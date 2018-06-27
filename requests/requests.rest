@@ -16,6 +16,28 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 
 ###
 
+PUT http://localhost:3003/api/blogs/5b326a256200ab036c933134
+content-type: application/json
+
+{
+    "title": "FullStack 2018 Moocc",
+    "author": "M. Luukkainen",
+    "url": "https://fullstackopen.github.io/",    
+    "userId": "5b198a81722b3a019c7bf6d3",
+    "comments": []
+}
+
+###
+
+POST http://localhost:3003/api/blogs/5b326a256200ab036c933134/comments
+content-type: application/json
+
+{
+  "comment": "test comment"
+}
+
+###
+
 DELETE http://localhost:3003/api/blogs/5b17053ccf60a562fbf93b32
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjViMTk4YTgxNzIyYjNhMDE5YzdiZjZkMyIsImlhdCI6MTUyODQwMDU0MX0.RN8AaeP9Fc4eEhzSH_xq18qMBzDkWsABA2_rnPBillU
 
