@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 
+const commentSchema = new mongoose.Schema({ comment: 'string' })
+
 const blogSchema = new mongoose.Schema({
   title: String,
   author: String,
   url: String,
   likes: Number,
-  comments: [String],
+  comments: [commentSchema],
   user: { type: mongoose.Schema.Types.ObjectId, ref:'User' }
 })
 
