@@ -2,5 +2,5 @@
     "env": {
         "MONGODB_URI": "@fs-blog-prod"
     },
-    "alias": "fs2018blogilista.now.sh"
+    "alias": "fs2018-blogs-ik.now.sh"
 }
