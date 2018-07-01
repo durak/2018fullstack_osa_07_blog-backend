@@ -146,6 +146,25 @@ describe('when some users initially exist',  () => {
     })
   })
 
+  describe('Existing user data', async () => {
+    test('GET /api/users/:id succeeds with valid user id', async () => {
+      const response = await api
+        .get(`/api/users/${validUser.id}`)
+        .expect(200)
+        .expect('Content-Type', /application\/json/)
+
+      expect(response.body.username).toBe(validUser.username)
+    })
+
+    test('GET /api/:id fails with invalid user id', async () => {
+      const response = await api
+        .get('/api/users/invalidId')
+        .expect(400)
+        .expect('Content-Type', /application\/json/)
+    })
+  })
+
+
 })
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,7 +327,8 @@ describe('When there is initially some blogs saved:', () => {
         author: 'old putman',
         title: 'old title',
         url: 'old url',
-        likes: 1
+        likes: 1,
+        comments: []
       })
       await newBlog.save()
     })
@@ -346,6 +366,25 @@ describe('When there is initially some blogs saved:', () => {
     test('PUT /api/blogs/:id fails with invalid data', async () => {
       await put('/api/blogs/', newBlog._id, {}, 400)
       await put('/api/blogs/', newBlog._id, { invalid:'something' }, 400)
+    })
+
+    test('POST /api/blogs/:id/comments succeeds with valid comment', async () => {
+      const commentsCountBefore = (await Blog.findById(newBlog._id)).comments.length
+
+      const comment = { comment: 'valid comment' }
+      await post(`/api/blogs/${newBlog._id}/comments`, comment, '', 200)
+      const fromDB = await Blog.findById(newBlog._id)
+
+      expect(fromDB.comments.length).toBe(commentsCountBefore + 1)
+      expect(fromDB.comments[0].comment).toBe('valid comment')
+    })
+
+    test('POST /API/blogs/:id/comments fails with empty request', async () => {
+      const commentsCountBefore = (await Blog.findById(newBlog._id)).comments.length
+      await post(`/api/blogs/${newBlog._id}/comments`, {}, '', 400)
+      await post(`/api/blogs/${newBlog._id}/comments`, '', '', 400)
+      const fromDB = await Blog.findById(newBlog._id)
+      expect(fromDB.comments.length).toBe(commentsCountBefore)
     })
   })
 

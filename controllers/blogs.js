@@ -56,6 +56,7 @@ blogsRouter.post('/', async (request, response) => {
 })
 
 blogsRouter.post('/:id/comments', async (request, response) => {
+  console.log('request', request.body)
   try {
     const body = request.body
     if (body.comment === undefined || body.comment === '') {

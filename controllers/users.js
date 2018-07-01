@@ -11,11 +11,16 @@ usersRouter.get('/', async (request, response) => {
 })
 
 usersRouter.get('/:id', async (request, response) => {
-  const user = await User
-    .findById(request.params.id)
-    .populate('blogs', { author:1, title:1, likes:1, url:1 })
+  try {
+    const user = await User
+      .findById(request.params.id)
+      .populate('blogs', { author:1, title:1, likes:1, url:1 })
 
-  response.json(User.format(user))
+    response.json(User.format(user))
+  } catch (exception) {
+    console.log(exception)
+    response.status(400).json({ error: 'malformmated id' })
+  }
 })
 
 usersRouter.post('/', async (request, response) => {
