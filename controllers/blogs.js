@@ -11,6 +11,19 @@ blogsRouter.get('/', async (request, response) => {
   response.json(blogs.map(Blog.format))
 })
 
+blogsRouter.get('/:id', async (request, response) => {
+  try {
+    const blog = await Blog
+      .findById(request.params.id)
+      .populate('user', { username: 1, name: 1 })
+
+    response.json(Blog.format(blog))
+  } catch (exception) {
+    console.log(exception)
+    response.status(400).json({ error: 'malformmated id' })
+  }
+})
+
 blogsRouter.post('/', async (request, response) => {
   try {
     const body = request.body

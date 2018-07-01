@@ -2,9 +2,17 @@ GET http://localhost:3003/api/blogs
 
 ###
 
+GET http://localhost:3003/api/blogs/5b38c3484d7ef616769558c2
+
+###
+
+GET http://localhost:3003/api/blogs/asd
+
+###
+
 POST http://localhost:3003/api/blogs
 content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjViMTk4YTgxNzIyYjNhMDE5YzdiZjZkMyIsImlhdCI6MTUyODQwMDU0MX0.RN8AaeP9Fc4eEhzSH_xq18qMBzDkWsABA2_rnPBillU
+Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjViMzhiOThjZmMxMTkyMTNhYjJjNWE3OSIsImlhdCI6MTUzMDQ0NDIwNn0.NfFf1BgtaUaNbjdobRac-oO9dpyXkuKX5OBzASIy34I
 
 {
     "title": "FullStack 2018 Mooc",
@@ -39,7 +47,7 @@ content-type: application/json
 ###
 
 DELETE http://localhost:3003/api/blogs/5b17053ccf60a562fbf93b32
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjViMTk4YTgxNzIyYjNhMDE5YzdiZjZkMyIsImlhdCI6MTUyODQwMDU0MX0.RN8AaeP9Fc4eEhzSH_xq18qMBzDkWsABA2_rnPBillU
+Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpZCI6IjViMzhiOThjZmMxMTkyMTNhYjJjNWE3OSIsImlhdCI6MTUzMDQ0NDIwNn0.NfFf1BgtaUaNbjdobRac-oO9dpyXkuKX5OBzASIy34I
 
 ###
 
@@ -47,20 +55,19 @@ GET http://localhost:3003/api/users
 
 ###
 
-GET http://localhost:3003/api/users/5b198a81722b3a019c7bf6d3
+GET http://localhost:3003/api/users/5b38b98cfc119213ab2c5a79
 
 ###
 
-GET http://localhost:3003/api/users/5b1a8e421122530358b6969c
-
+GET http://localhost:3003/api/users/5b1a8e421
 ###
 
 POST http://localhost:3003/api/users
 Content-Type: application/json
 
 {
-  "username": "user",
-  "name": "Dev Man",
+  "username": "user2",
+  "name": "Kumi Jii",
   "password": "password"
 }
 
