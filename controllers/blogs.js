@@ -99,6 +99,10 @@ blogsRouter.delete('/:id', async (request, response) => {
     }
 
     await Blog.findByIdAndRemove(request.params.id)
+    const user = await User.findById(blog.user._id)
+    user.blogs = user.blogs.filter(id => id.toString() !== blog.id.toString())
+    await user.save()
+
     response.status(204).end()
 
   } catch (exception) {
