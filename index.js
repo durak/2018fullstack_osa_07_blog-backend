@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const path = require('path')
 const mongoose = require('mongoose')
 const blogsRouter = require('./controllers/blogs')
 const usersRouter = require('./controllers/users')
@@ -25,13 +26,18 @@ mongoose
 app.use(cors())
 app.use(middleware.tokenExtractor)
 app.use(bodyParser.json())
-// static
+app.use(express.static('build'))
+
 // logger middleware
 
 // routemäärittelyt
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+
+app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+})
 
 // error middleware
 

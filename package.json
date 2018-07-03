@@ -1,5 +1,5 @@
 {
-  "name": "osa_04_blogilista",
+  "name": "fs2018-blogisovellus-back-ik",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/durak/2018fullstack_osa_04_blogilista.git"
+    "url": "git+https://github.com/durak/2018fullstack_osa_07_blog-backend.git"
   },
   "author": "IK",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/durak/2018fullstack_osa_04_blogilista/issues"
+    "url": "https://github.com/durak/2018fullstack_osa_07_blog-backend/issues"
   },
-  "homepage": "https://github.com/durak/2018fullstack_osa_04_blogilista#readme",
+  "homepage": "https://github.com/durak/2018fullstack_osa_07_blog-backend#readme",
   "devDependencies": {
     "eslint": "^4.19.1",
     "jest": "^23.1.0",

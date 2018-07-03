@@ -1,11 +1,11 @@
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 const supertest = require('supertest')
 const { app, server } = require('../index')
 const api = supertest(app)
 const dummyBlogs = require('./blogs_test_data')
 const User = require('../models/user')
 const Blog = require('../models/blog')
-const { format, blogsInDb, nonExistingId, blogsFromResponse, getUser, usersInDb } = require('./test_helper')
+const { format, blogsInDb, blogsFromResponse, getUser, usersInDb } = require('./test_helper')
 
 
 let validUser
@@ -157,7 +157,7 @@ describe('when some users initially exist',  () => {
     })
 
     test('GET /api/:id fails with invalid user id', async () => {
-      const response = await api
+      await api
         .get('/api/users/invalidId')
         .expect(400)
         .expect('Content-Type', /application\/json/)
