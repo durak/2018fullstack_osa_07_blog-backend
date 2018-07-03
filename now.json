@@ -1,11 +1,18 @@
 {
+  "files": [
+    "build",
+    "controllers",
+    "models",
+    "utils",
+    "index.js",
+    "now.json",
+    "package-lock.json",
+    "package.json"
+  ],
   "env": {
     "MONGODB_URI": "@fs-blog-prod",
     "SECRET": "@fs-blog-prod-secret",
     "PORT": 8080
   },
-  "alias": "fs2018-blogs-ik.now.sh",
-  "files": [    
-    "build"
-    ]
+  "alias": "fs2018-blogs-ik.now.sh"
 }
